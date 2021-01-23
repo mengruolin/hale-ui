@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    // "module": "esnext",
+    "module": "commonjs",
+    "noEmit": true,
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -12,29 +14,18 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
+    "types": ["webpack-env"],
     "paths": {
       "@/*": [
-        "src/*"
+        "site/*"
       ]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    // vue cli config -- site @dir
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "ts-node": {
+    "transpileOnly": true
+  },
+  "include": ["site/**/*", "packages/**/*", "typings/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
